@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    @apply w-screen h-screen max-w-full  ;
+}
+
+.title{
+    @apply w-full h-14 shadow-2xl text-3xl font-black flex justify-between items-center text-white bg-blue-500 pl-10 ;
+}
+h1{
+    @apply w-2/4 h-14 flex items-center bg-blue-500 ;
+}
+.btn-logout{
+    @apply w-32 ;
+}
+.subtitle{
+    @apply w-full max-w-full max-h-14 py-5 pl-3 ;
+}
+.subtitle-text{
+    @apply text-2xl text-zinc-400 font-black ;
+}
+.workspace{
+    @apply w-full h-3/4 mt-5 flex  justify-center items-center;
+}
+.workspace-container{
+    @apply w-[97%] h-[90%] flex border rounded-md border-zinc-400 ;
+}
+.add{
+    @apply w-1/2 h-full border-r py-20 px-20 border-zinc-400 flex items-center justify-center;
+}
+.display{
+    @apply w-1/2 h-full max-w-full max-h-full ;
+}
+.input{
+    @apply w-2/4 px-5 h-12 border border-zinc-400 rounded-lg ;
+}
+.form-dashboard{
+    @apply flex flex-col gap-2 ;
+}
+.btn-submit{
+    @apply w-2/4 h-10 hover:translate-x-6 hover:duration-300 bg-blue-500 rounded-md text-white ;
+}
+.select{
+    @apply w-1/2 h-12 border border-zinc-400 rounded-md ;
+}
