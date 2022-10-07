@@ -4,12 +4,13 @@ import { useAuthValue } from "../../context/AuthContext";
 import { Card } from '../Card/Card';
 import { useInsertDocument } from '../../hooks/useInstertDocuments';
 import { useState } from 'react';
+import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 
 export function Dashboard(){
 
     const [name, setName] = useState('')
     const [valueR$, setValueR$] = useState('')
-    const [typeEvent, setTypeEvent] = useState('entry')
+    const [typeEvent, setTypeEvent] = useState('')
 
 
     const {user} = useAuthValue() 
@@ -21,6 +22,7 @@ export function Dashboard(){
 
     const uid = user.uid
     
+    const {documents} = useFetchDocuments('events', null, uid)
     
     function handleSubmit(e:any){
         e.preventDefault()
@@ -43,7 +45,7 @@ export function Dashboard(){
     return(
         <div>
             <div className="title">
-                <h1>seja bem vindo {user.displayName.toUpperCase()}</h1>
+                <h1>seja bem vindo {user.displayName}</h1>
                 <button className='btn-logout' onClick={(e) => handleLogout(e)}>sair</button>
             </div>
 
@@ -66,7 +68,11 @@ export function Dashboard(){
                         </div>
                     </div>
                     <div className='display'>
-                        <Card cardTitle="conta de agua" valueR$="100"/>
+                        {documents && documents.map((doc:any, i:number) => {
+                            return(
+                                <Card key={i} cardTitle={doc.name} valueR$={doc.value}/>
+                            )
+                        })}
                     </div>
                 </div>
             </div>
