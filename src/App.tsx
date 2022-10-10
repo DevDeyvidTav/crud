@@ -23,7 +23,7 @@ export function App() {
   }, [auth])
 
   return (
-    <AuthProvider value={{user}}>
+    <AuthProvider  value={{user}}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={user ? <Dashboard /> : <Login/>} />

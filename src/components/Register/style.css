@@ -9,14 +9,14 @@
     @apply w-full h-full flex justify-center items-center ;
 }
 .register-area{
-    @apply h-3/4 w-2/4 border border-zinc-400 flex justify-center items-center ; 
+    @apply h-4/5 w-3/4 md:h-3/4 md:w-2/4 border border-zinc-400 flex justify-center items-center ; 
 }
 
 .form{
     @apply h-full w-full flex flex-col gap-3 justify-center items-center;
 }
 .input{
-    @apply w-2/4 px-5 h-12 border border-zinc-400 rounded-lg ;
+    @apply md:w-2/4 px-5 h-12 border border-zinc-400 rounded-lg ;
 }
 .button-register{
     @apply h-12 w-2/4 text-white rounded-lg hover:bg-blue-400 hover:duration-300 bg-blue-500;

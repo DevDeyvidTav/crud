@@ -7,7 +7,7 @@ import { useAuthentication } from '../../hooks/useAuthentication'
 
 export function Login(){
 
-    const { login } = useAuthentication()
+    const { login, error, loading } = useAuthentication()
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     async function handleSubmit(e:any): Promise<void>{
@@ -32,7 +32,8 @@ export function Login(){
                 <form className='form-login'>
                     <input value={email} className='input-login' onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Email' />
                     <input value={password} className='input-login' onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Senha' />
-                    <button onClick={(e) => handleSubmit(e)} className='button-login'>Entrar</button>
+                    <button onClick={(e) => handleSubmit(e)} className='button-login'>{loading ? 'Carregando...' : 'Entrar'}</button>
+                    {error && <p className={`${error ? 'opacity-100' : 'opacity-0' } duration-300 h-10 rounded-md w-96 text-center text-red-400 md:text-xl` }>{error}</p>}
                 </form>
                 <p className='w-full h-10 text-sm text-center text-zinc-700' > ainda não possui conta?</p>
                 <NavLink className='w-full text-center h-10 text-sm text-blue-600' to="/Register">Crie sua conta</NavLink>
